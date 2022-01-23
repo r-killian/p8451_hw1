@@ -40,7 +40,10 @@ hw1_df =
 Table of quantitative features
 
 ```{r}
-  
+hw1_df %>% 
+  select(age:mcp_1) %>% 
+  summary() %>% 
+  knitr::kable()
 ```
 
 # Question 2
@@ -86,5 +89,13 @@ q2_df %>%
   geom_bar(aes(fill = bmi_cat)) +
   facet_grid(. ~classification) +
   theme(axis.text.x = element_text(angle = 90), legend.position = "none")
+```
+
+# Question 4
+
+Logistic regression
+
+```{r}
+
 ```
 
