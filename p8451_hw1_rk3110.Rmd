@@ -96,6 +96,32 @@ q2_df %>%
 Logistic regression
 
 ```{r}
+hw1_df = 
+  hw1_df %>% 
+  mutate(
+    class = as.numeric(classification > 1)
+  )
 
+fit_logistic =
+  glm(class ~ glucose + homa + leptin + bmi + age, data = hw1_df, family = binomial())
+
+fit_logistic %>% 
+  broom::tidy()
+
+confint(fit_logistic, level = 0.95)
+```
+
+# Question 5
+
+Linear regression
+
+```{r}
+fit = 
+  lm(insulin ~ bmi + age + glucose, data = hw1_df)
+
+fit %>% 
+  broom::tidy()
+
+confint(fit, level = 0.95)
 ```
 
